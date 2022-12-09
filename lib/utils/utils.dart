@@ -47,7 +47,7 @@ class Utils {
 
     // Get the days count of the current year
     var endOfTheYear = DateTime(currentYear, 12, 31, 23, 59 , 59);
-    var daysCountOfYear = beginOfTheYear.difference(endOfTheYear).inDays;
+    var daysCountOfYear = endOfTheYear.difference(beginOfTheYear).inDays;
 
     return (100 * dayFromYearBegin) / daysCountOfYear;
   }
