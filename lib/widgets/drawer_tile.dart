@@ -1,5 +1,6 @@
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:reichenbach/widgets/app_bottom_modal_sheet.dart';
 
 class DrawerTile extends StatelessWidget {
@@ -13,7 +14,10 @@ class DrawerTile extends StatelessWidget {
 
     return ListTile(
       visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-      leading: Image.memory(icon, height: 30),
+      leading: Image.memory(
+        icon,
+        height: Hive.box("app").get("iconHeight", defaultValue: 30)
+      ),
       title: Text(application.appName),
       onTap: () async => await application.openApp(),
       onLongPress: () {
